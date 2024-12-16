@@ -286,6 +286,27 @@ style quick_button_text:
 
 screen navigation():
 
+    if main_menu:
+            # Zeige den Badge für das schnelle gute Ende an, falls es erreicht wurde
+            if persistent.fast_good_end:
+                add "badges/badge_fast_good_end.png" xalign 0.25 yalign 0 zoom 0.5
+
+            # Zeige den Badge für das gute Ende an, falls es erreicht wurde
+            if persistent.good_end:
+                add "badges/badge_good_end.png" xalign 0.4375 yalign 0 zoom 0.5
+
+            # Zeige den Badge für das Lorekeeper-Ende an, falls es erreicht wurde
+            if persistent.lorekeeper_end:
+                add "badges/badge_lorekeeper_end.png" xalign 0.625 yalign 0 zoom 0.5
+
+            # Zeige den Badge für das schlechte Ende an, falls es erreicht wurde
+            if persistent.bad_end:
+                add "badges/badge_bad_end.png" xalign 0.8125 yalign 0 zoom 0.5
+
+            # Zeige den Badge für das neutrale Ende an, falls es erreicht wurde
+            if persistent.neutral_end:
+                add "badges/badge_neutral_end.png" xalign 0.9999 yalign 0 zoom 0.5
+
     vbox:
         style_prefix "navigation"
 
@@ -295,9 +316,7 @@ screen navigation():
         spacing gui.navigation_spacing
 
         if main_menu:
-
             textbutton _("Start") action Start()
-
         else:
 
             textbutton _("History") action ShowMenu("history")

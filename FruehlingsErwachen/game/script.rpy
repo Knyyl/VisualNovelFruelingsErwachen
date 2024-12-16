@@ -12,6 +12,25 @@ define knueppeldick = Character("Knüppeldick", color="#ffc8c8", what_slow_cps=3
 define fliegentod = Character("Fliegentod", color="#ffc8ff", what_slow_cps=30)
 define zungenschlag = Character("Zungenschlag", color="#c8ffc8", what_slow_cps=30)
 define hungergurt = Character("Hungergurt", color="#ffcccc", what_slow_cps=30)
+
+init python:
+    persistent.fast_good_end = False
+    persistent.good_end = False
+    persistent.lorekeeper_end = False
+    persistent.bad_end = False
+    persistent.neutral_end = False
+
+    if not hasattr(persistent, 'fast_good_end'):
+        persistent.fast_good_end = False
+    if not hasattr(persistent, 'good_end'):
+        persistent.good_end = False
+    if not hasattr(persistent, 'lorekeeper_end'):
+        persistent.lorekeeper_end = False
+    if not hasattr(persistent, 'bad_end'):
+        persistent.bad_end = False
+    if not hasattr(persistent, 'neutral_end'):
+        persistent.neutral_end = False
+
 init:
     transform left:
         xalign 0.1
@@ -34,6 +53,7 @@ label ende:
     with fade
     $ gutene = False
     if moritz_suicide == True and brief_verfassen == True and wendla_aufklaerung != "biologisch" and mel_leben == True and wendla_fragt == True:
+        $ persistent.lorekeeper_end = True
         scene schule with fade
         play music "suspence.mp3" fadein 2.0
         erz "Lorekeeper Ende (1/5)"
@@ -43,6 +63,7 @@ label ende:
         erz "Du hast die Geschichte bewahrt, so wie sie war, und das ist auch eine Art von Erfolg."
 
     elif moritz_suicide == True and wendla_aufklaerung != "biologisch" and mel_leben == False:
+        $ persistent.bad_end = True
         play music "bad_ending.mp3" fadein 2.0
         erz "Schlechtes Ende (3/5)"
         erz "Du hast alle in den Abgrund gestoßen."
@@ -54,6 +75,7 @@ label ende:
         erz "Du bist schuld an dieser Tragödie. Allein du."
 
     elif moritz_suicide == False and wendla_aufklaerung == "biologisch" and mel_leben == True and wendla_fragt == False:
+        $ persistent.good_end = True
         $ gutene = True
         scene wohnzimmer with fade
         play music "emotional_happy.mp3" fadein 2.0
@@ -64,6 +86,7 @@ label ende:
         erz "Dies ist der seltene Moment, in dem alles gut ausgeht – und es liegt allein an dir."
 
     elif moritz_suicide == False and wendla_aufklaerung == "biologisch" and mel_leben == True and wendla_fragt == True:
+        $ persistent.fast_good_end = True
         scene wohnzimmer with fade
         play music "emotional_happy.mp3" fadein 2.0
         erz "Fast gutes Ende (5/5)"
@@ -71,6 +94,7 @@ label ende:
         erz "Du hast Moritz und Melchior vor ihren Abgründen bewahrt und ihnen eine Zukunft gegeben."
 
     else:
+        $ persistent.neutral_end = True
         scene wald with fade
         play music "suspence.mp3" fadein 2.0
         erz "Neutrales Ende (4/5)"
@@ -329,7 +353,7 @@ label moritz_letter_scene:
     erz "Seine Worte sind voller Schmerz, aber auch von der leisen Hoffnung getragen, dass sie ihm helfen wird."
 
     menu:
-        "Frau Gabor besucht Moritz persönlich":
+        "Frau Gabor unterstützt Moritz mental":
             $ gabor_visits = True
             erz "Nach langem Überlegen beschließt Frau Gabor, Moritz aufzusuchen. Sie kann den Schmerz in seinen Worten nicht ignorieren."
             erz "Trotz ihrer Zweifel macht sie sich auf den Weg, bereit, ihm Trost und Unterstützung zu spenden – wenn auch keine finanzielle Hilfe."
