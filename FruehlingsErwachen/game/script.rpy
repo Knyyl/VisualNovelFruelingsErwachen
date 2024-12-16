@@ -148,7 +148,7 @@ label wendla_mutter_wohnzimmer:
     play music "dissonant.mp3" fadein 2.0
     hide mom_happy
     show mom_unhappy at left
-    mom "Wendla… so etwas fragt man nicht. Das ist nichts für dich."
+    mom "Wendla... so etwas fragt man nicht. Das ist nichts für dich."
 
     hide wen
     show wen_unhappy at right
@@ -160,14 +160,14 @@ label wendla_mutter_wohnzimmer:
     menu:
         "Die biologische Erklärung":
             $ wendla_aufklaerung = "biologisch"
-            mom "Nun gut… Ein Mann und eine Frau kommen sich sehr nah. Aus dieser Verbindung wächst neues Leben. Es ist nichts Schlimmes, nur schwer in Worte zu fassen."
+            mom "Nun gut... Ein Mann und eine Frau kommen sich sehr nah. Aus dieser Verbindung wächst neues Leben. Es ist nichts Schlimmes, nur schwer in Worte zu fassen."
             wen "Es klingt seltsam, aber vielleicht ist es einfacher, als ich dachte. Danke, Mutter."
             erz "Wendla nickt langsam, ein neues, noch unklar definiertes Verständnis formt sich in ihrem Inneren."
 
         "Die 'moralische' Erklärung":
             $ wendla_aufklaerung = "moralisch"
-            mom "Um ein Kind zu bekommen, muss man seinen Ehemann von ganzem Herzen lieben. Das ist das Wichtigste… mehr musst du nicht wissen."
-            wen "Also… das ist alles?"
+            mom "Um ein Kind zu bekommen, muss man seinen Ehemann von ganzem Herzen lieben. Das ist das Wichtigste... mehr musst du nicht wissen."
+            wen "Also... das ist alles?"
             mom "Ja, mein Kind. Jetzt geh bitte zu Ina."
             erz "Wendla bleibt für einen Moment reglos stehen, nicht zufrieden mit der Antwort. Doch ihre Mutter wendet den Blick ab, und Wendla erkennt, dass jede weitere Frage sinnlos ist."
     erz "Wendla nimmt den Korb. Die Entscheidung ihrer Mutter hinterlässt einen Eindruck, dessen Bedeutung erst später klar werden wird."
@@ -204,19 +204,19 @@ label der_heuboden:
 
     hide mel_unhappy
     show mel_bigworry at left
-    mel "Wendla… warum bist du hier?"
+    mel "Wendla... warum bist du hier?"
 
     if wendla_aufklaerung == "biologisch":
-        wen "Melchior… ich gehe jetzt."
+        wen "Melchior... ich gehe jetzt."
 
-        mel "Nein, bleib… ich…"
+        mel "Nein, bleib... ich..."
         stop music fadeout 2.0
         wen "Lass mich gehen."
 
         erz "Wendla weicht seinen Händen aus, rutscht zur Leiter zurück und klettert hinunter. Unten bleibt sie kurz stehen, das Herz rast. Dann verschwindet sie schnellen Schrittes."
         stop music fadeout 2.0
     else:
-        wen "Melchior… was ist mit dir?"
+        wen "Melchior... was ist mit dir?"
 
         erz "Wendla zögert, bleibt sitzen. Sie ahnt nicht, was gleich geschehen wird. Das Donnern rückt näher, die Luft wird drückend."
 
@@ -245,7 +245,7 @@ label friedhof_szenen:
         play music "suspence.mp3" fadein 2.0
         erz "Melchior stolpert aus der Dunkelheit der Wälder auf den stillen Kirchhof. Sein Atem ist schwer, seine Kleider zerrissen, Schweiß und Schmutz bedecken sein Gesicht."
 
-        mel "Endlich … raus. Aber was jetzt? Was hält mich überhaupt noch?"
+        mel "Endlich... raus. Aber was jetzt? Was hält mich überhaupt noch?"
 
         erz "Die Nacht ist kalt, die Luft schwer von Verzweiflung. Melchior erstickt förmlich an Erinnerungen und Schuld."
 
@@ -255,7 +255,7 @@ label friedhof_szenen:
 
         erz "Melchior wandert ziellos durch die dunkle Nacht. Kein Stern durchbricht die Wolkendecke, nur der Mond wirft ein schwaches Licht auf den Weg."
 
-        mel "Alles ist anders … leer. Aber vielleicht gibt es noch einen Weg."
+        mel "Alles ist anders... leer. Aber vielleicht gibt es noch einen Weg."
         
         erz "Seine Schritte hallen auf dem Pflaster, während Blätter im Wind rascheln."
 
@@ -263,6 +263,7 @@ label friedhof_szenen:
 
         erz "Melchior bleibt vor einem Grab stehen. Immergrün umrahmt einen schlichten Stein, auf dem 'Wendla, Selig sind, die reinen Herzens sind...' steht."
 
+        mel "Wendla?"
         mel "Ich bin dein Mörder. Wie konnte ich dich so im Stich lassen?"
 
         erz "Der Wind pfeift, und Melchior sinkt auf die Knie."
@@ -277,8 +278,11 @@ label friedhof_szenen:
 
         erz "Bevor Melchior reagieren kann, erscheint eine zweite Gestalt – der Vermummte Herr."
 
-        herr "Du stehst an der Schwelle, Junge. Entscheide dich: Willst du weiterleben oder endlich Ruhe finden?"
-
+        herr "Melchior, du bist schwach. Dein Magen knurrt, deine Gedanken trüben sich. Wie willst du in diesem Zustand klar entscheiden?" 
+        mor "Ich biete dir Frieden, Melchior. Befreiung von allem weltlichen Schmerz. Die sanfte Erlösung wartet nur auf dich. Komm. Nimm meine Hand."  
+        herr "(Mit einem abfälligen Lachen) Und du bist? Ein Bote des Jenseits? Oder bloß ein Toter, der seinen Kopf verlor?"  
+        mor "(Voller Stolz) Ich habe mich selbst erschossen. Der Schmerz ist vorbei. Die Stille bleibt."  
+        herr "Es ist noch nicht zu spät, Melchior. Entscheide dich für das Leben. Nimm meine Hand."  
         erz "Eine Entscheidung steht an."
         menu:
             "Melchior greift nach Moritz’ Hand.":
@@ -319,7 +323,7 @@ label moritz_letter_scene:
 
     play music "melchior.mp3" fadein 2.0
 
-    erz "Ein Brief von Moritz Stiefel erreicht Frau Gabor. Die unsichere Schrift spiegelt seine Verzweiflung wider."
+    erz "Ein Brief von Moritz Stiefel erreicht Melchiors Mutter, Frau Gabor. Die unsichere Schrift spiegelt seine Verzweiflung wider."
     erz "Er bittet sie flehend um finanzielle Hilfe für eine Flucht nach Amerika, da der Druck der Schule und seiner Eltern ihn zu ersticken droht."
     erz "Zwischen den Zeilen deutet Moritz an, dass er keinen anderen Ausweg sieht."
     erz "Seine Worte sind voller Schmerz, aber auch von der leisen Hoffnung getragen, dass sie ihm helfen wird."
@@ -370,7 +374,7 @@ label moritz_monolog_ilse:
 
     mor "Es ist, als hätte ich keinen Platz. Man hat mich in diese Welt gedrängt, ohne zu fragen. Jetzt will ich einfach nur weg."
 
-    erz "Plötzlich raschelt es im Gebüsch. Ilse tritt hervor, farbenfroh gekleidet, mit einem seltsamen Ausdruck von Heiterkeit."
+    erz "Plötzlich raschelt es im Gebüsch. Ein bekanntes Mädchen, Ilse, tritt hervor, farbenfroh gekleidet, mit einem seltsamen Ausdruck von Heiterkeit."
 
     mor "Ilse? Was machst du hier ganz allein?"
 
@@ -397,7 +401,7 @@ label moritz_monolog_ilse:
         erz "Ilse redet, lacht leise, doch Moritz hört ihre Worte nicht mehr. Er spürt keine Wärme, keine Hoffnung. Ihr Lachen verhallt, und Ilse verschwindet, ohne dass er ihr folgt."
         hide mor
         show mor_suicide at center
-        mor "Es hätte nur ein Wort gebraucht…"
+        mor "Es hätte nur ein Wort gebraucht..."
         scene black with fade
 
         menu:
@@ -457,15 +461,20 @@ label wendla_melchior_wald:
         show mel_unhappy at left
         mel "Wendla, das ist Unsinn! Niemand sollte so etwas erleben wollen!"
 
-        wen "Bitte, Melchior… schlag mich. Nur einmal."
+        wen "Bitte, Melchior... schlag mich. Nur einmal."
 
-        erz "Melchior blickt sie fassungslos an."
+        mel "Wenn du unbedingt darauf bestehst..."
 
-        mel "Wenn du unbedingt darauf bestehst…"
+        erz "Melchior blickt sie fassungslos an und schubst sie ganz leicht."
         
-        wen "Ich spüre kaum etwas. Schlag mich fester, Melchior."
+        wen "Ich spüre kaum etwas. Schlag mich fester, Melchior. Du bist doch kein Schwächling?"
 
-        mel "Wendla, hör auf! Was verlangst du da von mir?"
+        hide mel_unhappy
+        show mel_alt at left
+        mel "..."
+
+        wen "Schwächling..."
+
         stop music fadeout 2.0
         erz "Getrieben von einer Mischung aus Wut und Verzweiflung wirft Melchior die Gerte weg und schlägt mit den Fäusten auf Wendla ein."
 
@@ -476,6 +485,8 @@ label wendla_melchior_wald:
 
         erz "Plötzlich lässt Melchior von ihr ab. Tränen laufen über sein Gesicht, während er die Hände an seine Schläfen presst. Ohne ein weiteres Wort stürzt er in den Wald davon, lässt Wendla allein zurück."
         
+        erz "Nach einigen Minuten erholt sich Wendla und stolpert nach Hause. Ihr Schlaf ist unruhig und sie kann kaum einschlafen."
+
         stop music fadeout 2.0
         jump wendla_mutter_wohnzimmer
 
@@ -502,7 +513,7 @@ label wendla_melchior_wald:
 
         mel "Manchmal reicht es, einfach da zu sein. Niemand sollte so leiden müssen."
 
-        wen "Ja, das stimmt… Danke, Melchior."
+        wen "Ja, das stimmt... Danke, Melchior."
 
         erz "Beide setzen ihren Weg fort, Wendla mit ihrem Korb, Melchior neben ihr. Das Rauschen der Blätter wird lauter, während sie den Wald verlassen."
 
@@ -522,7 +533,7 @@ label melchior_moritz_zimmer:
 
     erz "Der Abend hat sich über Melchiors Zimmer gesenkt. Die Lampe auf dem Schreibtisch flackert leicht, während Moritz und Melchior auf dem Kanapee sitzen und reden."
 
-    mor "Weißt du, Melchior, manchmal frage ich mich… warum wir das alles überhaupt machen. Die Schule, die Prüfungen… wofür?"
+    mor "Weißt du, Melchior, manchmal frage ich mich... warum wir das alles überhaupt machen. Die Schule, die Prüfungen... wofür?"
 
     hide mel_unhappy
     show mel at left
@@ -558,7 +569,7 @@ label melchior_moritz_zimmer:
 
             erz "Die Worte scheinen Moritz zu erreichen. Seine Schultern entspannen sich, und ein schwaches Lächeln huscht über sein Gesicht."
 
-            mor "Danke, Melchior. Das bedeutet mir viel… Ich glaube, ich habe das gebraucht."
+            mor "Danke, Melchior. Das bedeutet mir viel... Ich glaube, ich habe das gebraucht."
 
             stop music fadeout 1.0
             play music "emotional_happy.mp3" fadein 2.0
@@ -574,7 +585,7 @@ label melchior_moritz_zimmer:
             show mel_sus at left
             mel "Es bringt nichts, sich den Kopf über die Schule zu zerbrechen. Lass uns über etwas anderes reden."
 
-            mor "(verwirrt) Etwas anderes? Aber…"
+            mor "(verwirrt) Etwas anderes? Aber..."
 
             hide mel_sus
             show mel at left
@@ -613,7 +624,6 @@ label wendla_thea_martha_wald:
 
             erz "Martha dreht sich weg, ihre Stimme erstickt in der Stille des Waldes. Wendla bleibt stehen, eine seltsame Spannung in ihrem Inneren."
             stop music fadeout 1.0
-            play music "very_dark.mp3" fadein 2.0
             scene black
             erz "Marthas Ausweichen löst in ihr nicht nur Verwunderung aus, sondern auch einen unerklärlichen Drang, es selbst zu spüren."
 
@@ -630,7 +640,7 @@ label wendla_thea_martha_wald:
             play music "dissonant.mp3" fadein 2.0
             scene black
 
-            wen "(leise zu sich selbst) Vielleicht… vielleicht ist es besser, es nicht zu wissen."
+            wen "(leise zu sich selbst) Vielleicht... vielleicht ist es besser, es nicht zu wissen."
 
             erz "Die Ungewissheit nagt an Wendla, doch sie beschließt, nicht weiter nachzuhaken. Trotzdem bleibt das Unausgesprochene zwischen ihnen wie ein Schatten im Wald."
 
@@ -665,11 +675,11 @@ label moritz_melchior_schule:
 
     hide mel_sus
     show mel at left
-    mel "Nur, wenn wir es zulassen. Aber sag mal, Moritz… warum bedrückt dich das alles in letzter Zeit so sehr?"
+    mel "Nur, wenn wir es zulassen. Aber sag mal, Moritz... warum bedrückt dich das alles in letzter Zeit so sehr?"
 
     hide mor_sad
     show mor_fakesmile at right
-    mor "Seit Weihnachten fühle ich mich… seltsam. Alles scheint sich zu verändern, aber ich verstehe nichts davon. Es macht mir Angst."
+    mor "Seit Weihnachten fühle ich mich... seltsam. Alles scheint sich zu verändern, aber ich verstehe nichts davon. Es macht mir Angst."
 
     stop music fadeout 1.0
     play music "dissonant.mp3" fadein 2.0
@@ -680,25 +690,25 @@ label moritz_melchior_schule:
 
     hide mor_fakesmile
     show mor_sad at right
-    mor "Nein… ich meine, ich ahne etwas. Aber niemand redet darüber. Niemand erklärt uns irgendetwas."
+    mor "Nein... ich meine, ich ahne etwas. Aber niemand redet darüber. Niemand erklärt uns irgendetwas."
 
     hide mel_unhappy
     show mel_sus at left
     mel "Es ist doch absurd, nicht? Die Erwachsenen erwarten, dass wir die Welt verstehen, aber sie verweigern uns jede Erklärung."
 
-    mor "Melchior, du weißt doch Dinge. Mehr als ich. Kannst du es mir… erklären?"
+    mor "Melchior, du weißt doch Dinge. Mehr als ich. Kannst du es mir... erklären?"
 
     hide mel_sus
     show mel at left
     mel "Was genau möchtest du wissen?"
 
-    mor "Alles. Warum wir diese Gefühle haben. Warum es plötzlich so kompliziert wird, mit den Mädchen zu reden. Was das alles bedeutet."
+    mor "Alles. Warum wir diese Gefühle haben. Warum es plötzlich so kompliziert wird, mit den Mädchen zu reden. Wie entstehen Kinder. Was das alles bedeutet."
 
     erz "Ein sanfter Wind pfeift auf."
 
     hide mel
     show mel_bigworry at left
-    mel "Das ist viel auf einmal, Moritz. Vielleicht… sollten wir ein anderes Mal ausführlicher sprechen."
+    mel "Das ist viel auf einmal, Moritz. Vielleicht... sollten wir ein anderes Mal ausführlicher sprechen."
 
     mor "Nein, nicht sprechen. Schreib es mir auf. In einem Brief. Alles, was du weißt. Ich kann das nicht hier und jetzt hören."
 
@@ -708,7 +718,7 @@ label moritz_melchior_schule:
 
     hide mor_sad
     show mor_fakesmile at right
-    mor "Weil ich es besser begreifen kann, wenn ich es allein lese. Und… ich schäme mich zu sehr, es laut zu hören."
+    mor "Weil ich es besser begreifen kann, wenn ich es allein lese. Und... ich schäme mich zu sehr, es laut zu hören."
 
     erz "Die Stimmung wird düsterer, fast drängend."
 
@@ -776,7 +786,7 @@ label lehrer_eltern_szenen:
         erz "Im Konferenzzimmer herrscht bedrückte Stille. Die Professoren sitzen um einen grünen Tisch. Nervosität und Verlegenheit liegen in der Luft. Rektor Sonnenstich steht schweigend, die Stirn gerunzelt, während die anderen auf ihre Hände starren."
 
         sonnenstich "Meine Herren, wir stehen vor einem Abgrund. Die Tragödie des Schülers Stiefel hat unsere Institution erschüttert. Die Öffentlichkeit wird uns beobachten."
-        knueppeldick "Ich glaube nicht, dass wir diese Verantwortung allein tragen sollten. Die Anforderungen an die Schüler… sind vielleicht zu hoch."
+        knueppeldick "Ich glaube nicht, dass wir diese Verantwortung allein tragen sollten. Die Anforderungen an die Schüler... sind vielleicht zu hoch."
         fliegentod "Zu hoch? Unsere Aufgabe ist es, sie zu gebildeten Bürgern zu formen. Die Schwäche dieses Jungen war bedauerlich, aber nicht unser Fehler."
         zungenschlag "I-ich möchte daran erinnern, dass wir hier eine Verantwortung gegenüber der Gesellschaft haben."
         hungergurt "Aber was ist mit der Verantwortung gegenüber den Schülern selbst? Waren wir zu streng? Haben wir genug getan, um Stiefel zu unterstützen?"
@@ -799,7 +809,7 @@ label lehrer_eltern_szenen:
 
         erz "Das Konferenzzimmer liegt in kaltem Licht. Melchior steht vor den Professoren, bleich, aber gefasst. Auf dem Tisch liegt das Schriftstück, das ihn belasten soll."
 
-        sonnenstich "Melchior, dieses gefundene Schriftstück lässt uns keine Wahl. Es ist eindeutig, dass Sie der Autor dieser schamlosen Abhandlung sind."
+        sonnenstich "Melchior, dieses gefundene Schriftstück lässt uns keine Wahl. Es ist eindeutig, dass sie der Autor dieser schamlosen, pornografischen Schrift sind"
         mel "Ja, ich habe es geschrieben."
         sonnenstich "Und Sie erkennen die Auswirkungen nicht? Sie haben Stiefel mit Ihrer Verworfenheit in den Abgrund gestoßen!"
         mel "Das ist nicht wahr. Moritz hat sich das Leben genommen, weil er in einem erdrückenden System gefangen war. Nicht mein Schriftstück hat ihn zerstört, sondern Ihre Schule."
@@ -847,7 +857,7 @@ label wendlas_geburtstag_wohnzimmer:
 
     hide wen_happy
     show wen_unhappy at right
-    wen "Aber… warum ist es so lang? Es geht mir ja bis zu den Knöcheln!"
+    wen "Aber... warum ist es so lang? Es geht mir ja bis zu den Knöcheln!"
 
     mom "Du bist jetzt vierzehn, Wendla. Es gehört sich, dass du dich anständig kleidest."
 
@@ -859,13 +869,13 @@ label wendlas_geburtstag_wohnzimmer:
 
     wen "Aber das hat doch bisher niemanden gestört. Es ist doch nur ein Kleid!"
 
-    mom "Wendla, bitte. Es ist doch besser, sich passend zu kleiden, als… als Aufmerksamkeit auf sich zu ziehen."
+    mom "Wendla, bitte. Es ist doch besser, sich passend zu kleiden, als... als Aufmerksamkeit auf sich zu ziehen."
 
     wen "Aufmerksamkeit? Wieso sollte ein Kleid Aufmerksamkeit erregen?"
 
     mom "Wendla, das verstehst du noch nicht. Und das musst du auch nicht. Zieh es an, und wir reden nicht weiter darüber."
 
-    wen "Ich verstehe nicht, warum es so wichtig ist…"
+    wen "Ich verstehe nicht, warum es so wichtig ist..."
 
     mom "Ich weiß, was gut für dich ist. Mehr musst du nicht wissen."
 
@@ -877,7 +887,7 @@ label wendlas_geburtstag_wohnzimmer:
 
     wen "Warum sollte ich etwas tragen, was ich nicht mag? Es ist mein Geburtstag. Lass mich wenigstens diesen Sommer so bleiben, wie ich bin."
 
-    mom "Vielleicht… Diesen Sommer kannst du noch dein altes Kleid tragen. Nur diesen Sommer."
+    mom "Vielleicht... Diesen Sommer kannst du noch dein altes Kleid tragen. Nur diesen Sommer."
 
     hide wen
     show wen_happy at right
@@ -898,7 +908,7 @@ label schwangerschaft:
     show mom_unhappy at left
     show wen_unhappy at right
 
-    erz "Das Zimmer ist abgedunkelt. Wendla liegt blass und erschöpft im Bett. Neben ihr sitzt Frau Bergmann, Sorge und Verzweiflung zeichnen ihr Gesicht. Der Medizinalrat Dr. von Brausepulver hat soeben den Raum verlassen."
+    erz "Das Zimmer ist abgedunkelt. Wendla liegt blass und erschöpft im Bett. Neben ihr sitzt ihre Mutter, Frau Bergmann, Sorge und Verzweiflung zeichnen ihr Gesicht. Der Medizinalrat Dr. von Brausepulver hat soeben den Raum verlassen."
 
     erz "Die Diagnose lautet auf 'Bleichsucht', doch Wendla spürt, dass etwas anderes nicht stimmt."
 
@@ -914,19 +924,21 @@ label schwangerschaft:
 
     hide mom_happy
     show mom_unhappy at left
-    mom "Wendla, du… du hast ein Kind."
+    mom "Wendla, du... du hast ein Kind."
 
     erz "Wendla starrt ihre Mutter an, die Augen weit aufgerissen."
 
-    wen "Das kann nicht sein. Ich bin doch nicht verheiratet…"
+    wen "Das kann nicht sein. Ich bin doch nicht verheiratet..."
 
     mom "Das ist das Fürchterliche, mein Kind!"
 
-    wen "Ich weiß es nicht mehr… Wir lagen im Heu…"
+    wen "Ich weiß es nicht mehr... Wir lagen im Heu..."
 
     erz "Es klopft an der Tür, doch es ist nur die Nachbarin, die zufällig vorbeikommt. Wendla bleibt zurück, in ihrem Bett, gefangen in einer Welt, die sie nicht versteht."
 
     stop music fadeout 2.0
     scene black with fade
     mom "Wendla, mein Schlatz, komm mal kurz ins Wohnzimmer. Die Nachbarin will dir helfen..."
+
+    erz "Wendla schreit vor Schmerzen auf..."
     jump friedhof_szenen
