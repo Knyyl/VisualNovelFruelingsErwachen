@@ -1,28 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 37, in script
-    if moritz_suicide == True and brief_verfassen == True and wendla_aufklaerung != "biologisch" and mel_leben == True:
-  File "game/script.rpy", line 58, in <module>
-    elif moritz_suicide == False and wendla_aufklaerung == "biologisch" and mel_leben == True:
-NameError: name 'mel_leben' is not defined
+  File "game/script.rpy", line 831, in script
+    wen "Oh, Mutter! Ein Kleid?"
+Exception: Sayer 'wen' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 37, in script
-    if moritz_suicide == True and brief_verfassen == True and wendla_aufklaerung != "biologisch" and mel_leben == True:
-  File "C:\Users\vladi\Downloads\renpy-8.3.4-sdk.7z\renpy-8.3.4-sdk\renpy\ast.py", line 1849, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\vladi\Downloads\renpy-8.3.4-sdk.7z\renpy-8.3.4-sdk\renpy\python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\vladi\Downloads\renpy-8.3.4-sdk.7z\renpy-8.3.4-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 58, in <module>
-    elif moritz_suicide == False and wendla_aufklaerung == "biologisch" and mel_leben == True:
-NameError: name 'mel_leben' is not defined
+  File "game/script.rpy", line 831, in script
+    wen "Oh, Mutter! Ein Kleid?"
+  File "C:\Users\vladi\Downloads\renpy-8.3.4-sdk.7z\renpy-8.3.4-sdk\renpy\ast.py", line 2579, in execute
+    Say.execute(self)
+  File "C:\Users\vladi\Downloads\renpy-8.3.4-sdk.7z\renpy-8.3.4-sdk\renpy\ast.py", line 581, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "C:\Users\vladi\Downloads\renpy-8.3.4-sdk.7z\renpy-8.3.4-sdk\renpy\ast.py", line 470, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'wen' is not defined.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.3.4.24120703
 FruehlingsErwachen 1.0
-Sun Dec 15 21:34:43 2024
+Mon Dec 16 18:05:05 2024

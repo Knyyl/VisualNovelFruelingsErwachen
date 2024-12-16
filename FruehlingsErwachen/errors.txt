@@ -2,9 +2,173 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 51: end of line expected.
-    erzl "Wendla ist tot. "\w(1.5)"Moritz ist tot. "\w(1.5)"Melchior ist tot."
-                           ^
+The label ende is defined twice, at File "game/no-comments.rpy", line 19:
+label ende:
+and File "game/script.rpy", line 19:
+label ende:
+
+
+The label start is defined twice, at File "game/no-comments.rpy", line 102:
+label start:
+and File "game/script.rpy", line 102:
+label start:
+
+
+The label wendla_mutter_wohnzimmer is defined twice, at File "game/no-comments.rpy", line 105:
+label wendla_mutter_wohnzimmer:
+and File "game/script.rpy", line 105:
+label wendla_mutter_wohnzimmer:
+
+
+The label der_heuboden is defined twice, at File "game/no-comments.rpy", line 165:
+label der_heuboden:
+and File "game/script.rpy", line 165:
+label der_heuboden:
+
+
+The label friedhof_szenen is defined twice, at File "game/no-comments.rpy", line 224:
+label friedhof_szenen:
+and File "game/script.rpy", line 224:
+label friedhof_szenen:
+
+
+The label moritz_letter_scene is defined twice, at File "game/no-comments.rpy", line 303:
+label moritz_letter_scene:
+and File "game/script.rpy", line 303:
+label moritz_letter_scene:
+
+
+The label moritz_monolog_ilse is defined twice, at File "game/no-comments.rpy", line 343:
+label moritz_monolog_ilse:
+and File "game/script.rpy", line 343:
+label moritz_monolog_ilse:
+
+
+The label wendla_melchior_wald is defined twice, at File "game/no-comments.rpy", line 416:
+label wendla_melchior_wald:
+and File "game/script.rpy", line 416:
+label wendla_melchior_wald:
+
+
+The label melchior_moritz_zimmer is defined twice, at File "game/no-comments.rpy", line 501:
+label melchior_moritz_zimmer:
+and File "game/script.rpy", line 501:
+label melchior_moritz_zimmer:
+
+
+The label wendla_thea_martha_wald is defined twice, at File "game/no-comments.rpy", line 579:
+label wendla_thea_martha_wald:
+and File "game/script.rpy", line 579:
+label wendla_thea_martha_wald:
+
+
+The label moritz_melchior_schule is defined twice, at File "game/no-comments.rpy", line 632:
+label moritz_melchior_schule:
+and File "game/script.rpy", line 632:
+label moritz_melchior_schule:
+
+
+The label lehrer_eltern_szenen is defined twice, at File "game/no-comments.rpy", line 752:
+label lehrer_eltern_szenen:
+and File "game/script.rpy", line 752:
+label lehrer_eltern_szenen:
+
+
+The label wendlas_geburtstag_wohnzimmer is defined twice, at File "game/no-comments.rpy", line 821:
+label wendlas_geburtstag_wohnzimmer:
+and File "game/script.rpy", line 821:
+label wendlas_geburtstag_wohnzimmer:
+
+
+The label schwangerschaft is defined twice, at File "game/no-comments.rpy", line 878:
+label schwangerschaft:
+and File "game/script.rpy", line 878:
+label schwangerschaft:
+
+
+The label ende is defined twice, at File "game/script.rpy", line 19:
+label ende:
+and File "game/script-backup.rpy", line 31:
+label ende:
+
+
+The label start is defined twice, at File "game/script.rpy", line 102:
+label start:
+and File "game/script-backup.rpy", line 121:
+label start:
+
+
+The label wendla_mutter_wohnzimmer is defined twice, at File "game/script.rpy", line 105:
+label wendla_mutter_wohnzimmer:
+and File "game/script-backup.rpy", line 124:
+label wendla_mutter_wohnzimmer:
+
+
+The label der_heuboden is defined twice, at File "game/script.rpy", line 165:
+label der_heuboden:
+and File "game/script-backup.rpy", line 186:
+label der_heuboden:
+
+
+The label friedhof_szenen is defined twice, at File "game/script.rpy", line 224:
+label friedhof_szenen:
+and File "game/script-backup.rpy", line 258:
+label friedhof_szenen:
+
+
+The label moritz_letter_scene is defined twice, at File "game/script.rpy", line 303:
+label moritz_letter_scene:
+and File "game/script-backup.rpy", line 352:
+label moritz_letter_scene:
+
+
+The label moritz_monolog_ilse is defined twice, at File "game/script.rpy", line 343:
+label moritz_monolog_ilse:
+and File "game/script-backup.rpy", line 395:
+label moritz_monolog_ilse:
+
+
+The label wendla_melchior_wald is defined twice, at File "game/script.rpy", line 416:
+label wendla_melchior_wald:
+and File "game/script-backup.rpy", line 480:
+label wendla_melchior_wald:
+
+
+The label melchior_moritz_zimmer is defined twice, at File "game/script.rpy", line 501:
+label melchior_moritz_zimmer:
+and File "game/script-backup.rpy", line 578:
+label melchior_moritz_zimmer:
+
+
+The label wendla_thea_martha_wald is defined twice, at File "game/script.rpy", line 579:
+label wendla_thea_martha_wald:
+and File "game/script-backup.rpy", line 674:
+label wendla_thea_martha_wald:
+
+
+The label moritz_melchior_schule is defined twice, at File "game/script.rpy", line 632:
+label moritz_melchior_schule:
+and File "game/script-backup.rpy", line 732:
+label moritz_melchior_schule:
+
+
+The label lehrer_eltern_szenen is defined twice, at File "game/script.rpy", line 752:
+label lehrer_eltern_szenen:
+and File "game/script-backup.rpy", line 871:
+label lehrer_eltern_szenen:
+
+
+The label wendlas_geburtstag_wohnzimmer is defined twice, at File "game/script.rpy", line 821:
+label wendlas_geburtstag_wohnzimmer:
+and File "game/script-backup.rpy", line 955:
+label wendlas_geburtstag_wohnzimmer:
+
+
+The label schwangerschaft is defined twice, at File "game/script.rpy", line 878:
+label schwangerschaft:
+and File "game/script-backup.rpy", line 1019:
+label schwangerschaft:
+
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Sun Dec 15 21:29:28 2024
+Mon Dec 16 18:04:11 2024

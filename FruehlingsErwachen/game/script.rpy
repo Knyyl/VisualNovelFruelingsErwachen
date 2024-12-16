@@ -30,13 +30,10 @@ init:
 
 label ende:
 
-    # Fade to black screen for the endings
     scene black
     with fade
     $ gutene = False
-    # Determine the ending
     if moritz_suicide == True and brief_verfassen == True and wendla_aufklaerung != "biologisch" and mel_leben == True and wendla_fragt == True:
-        # Lorekeeper Ende (1/4)
         scene schule with fade
         play music "suspence.mp3" fadein 2.0
         erz "Lorekeeper Ende (1/5)"
@@ -46,7 +43,6 @@ label ende:
         erz "Du hast die Geschichte bewahrt, so wie sie war, und das ist auch eine Art von Erfolg."
 
     elif moritz_suicide == True and wendla_aufklaerung != "biologisch" and mel_leben == False:
-        # Schlechtes Ende (3/4)
         play music "bad_ending.mp3" fadein 2.0
         erz "Schlechtes Ende (3/5)"
         erz "Du hast alle in den Abgrund gestoßen."
@@ -58,7 +54,6 @@ label ende:
         erz "Du bist schuld an dieser Tragödie. Allein du."
 
     elif moritz_suicide == False and wendla_aufklaerung == "biologisch" and mel_leben == True and wendla_fragt == False:
-        # Gutes Ende (2/4)
         $ gutene = True
         scene wohnzimmer with fade
         play music "emotional_happy.mp3" fadein 2.0
@@ -69,7 +64,6 @@ label ende:
         erz "Dies ist der seltene Moment, in dem alles gut ausgeht – und es liegt allein an dir."
 
     elif moritz_suicide == False and wendla_aufklaerung == "biologisch" and mel_leben == True and wendla_fragt == True:
-        # Gutes Ende (2/4)
         scene wohnzimmer with fade
         play music "emotional_happy.mp3" fadein 2.0
         erz "Fast gutes Ende (5/5)"
@@ -77,7 +71,6 @@ label ende:
         erz "Du hast Moritz und Melchior vor ihren Abgründen bewahrt und ihnen eine Zukunft gegeben."
 
     else:
-        # Neutrales Ende (4/4)
         scene wald with fade
         play music "suspence.mp3" fadein 2.0
         erz "Neutrales Ende (4/5)"
@@ -126,10 +119,8 @@ label wendla_mutter_wohnzimmer:
     scene wohnzimmer
     with fade
 
-    # Calm piano melody for the beginning:
     play music "happy.mp3" fadein 2.0
 
-    # Characters on screen: Mom on left, Wendla on right
     show mom_happy at left
     show wen at right
 
@@ -188,11 +179,8 @@ label der_heuboden:
     scene heu
     with fade
 
-    # Play a threatening string piece to set tension - "dissonant.mp3"
     play music "dissonant.mp3" fadein 2.0
 
-    # Sound effect for the hay, thunder - if none provided, skip or just mention in narrative
-    # show Melchior (left) and Wendla (right)
     show mel_unhappy at left
     show wen_unhappy at right
 
@@ -200,14 +188,12 @@ label der_heuboden:
 
     wen "Melchior? Hier bist du. Alle suchen dich unten, es zieht ein Gewitter auf."
 
-    # Melchior turns away, unhappy
     hide mel_unhappy
     show mel_sus at left
     mel "Geh weg, Wendla. Geh einfach weg."
 
     wen "Was ist los mit dir? Warum versteckst du dich hier?"
 
-    # Melchior voice rough, he wants to be alone
     hide mel_sus
     show mel_unhappy at left
     mel "Ich will allein sein. Du solltest nicht hier sein."
@@ -220,9 +206,7 @@ label der_heuboden:
     show mel_bigworry at left
     mel "Wendla… warum bist du hier?"
 
-    # Wendla notices his unrest, moves closer. Now we check aufklaerung.
     if wendla_aufklaerung == "biologisch":
-        # Wendla is aufgeklärt, she senses danger and leaves
         wen "Melchior… ich gehe jetzt."
 
         mel "Nein, bleib… ich…"
@@ -230,19 +214,13 @@ label der_heuboden:
         wen "Lass mich gehen."
 
         erz "Wendla weicht seinen Händen aus, rutscht zur Leiter zurück und klettert hinunter. Unten bleibt sie kurz stehen, das Herz rast. Dann verschwindet sie schnellen Schrittes."
-        # Wendla escapes, no black screen here
         stop music fadeout 2.0
     else:
-        # wendla_aufklaerung != "biologisch" means "moralisch"
-        # Wendla is not fully informed, unsure, she does not leave
         wen "Melchior… was ist mit dir?"
 
         erz "Wendla zögert, bleibt sitzen. Sie ahnt nicht, was gleich geschehen wird. Das Donnern rückt näher, die Luft wird drückend."
 
-        # Fade to black as abuse occurs off-screen
         scene black with fade
-        # After this line, the abuse happens off-screen. 
-        # After a pause, we stop music, ending the scene in silence.
         stop music fadeout 2.0
         menu:
             "Melchior greift Wendla":
@@ -257,18 +235,12 @@ label der_heuboden:
         
 label friedhof_szenen:
 
-    # Conditions assumed set previously:
-    # wendla_aufklaerung (string) and moritz_suicide (boolean)
 
     scene kirche
     with fade
 
-    # Show only Melchior on the left
     show mel at left
 
-    #################
-    # A1: Ausbruch
-    #################
     if brief_verfassen:
         play music "suspence.mp3" fadein 2.0
         erz "Melchior stolpert aus der Dunkelheit der Wälder auf den stillen Kirchhof. Sein Atem ist schwer, seine Kleider zerrissen, Schweiß und Schmutz bedecken sein Gesicht."
@@ -287,9 +259,6 @@ label friedhof_szenen:
         
         erz "Seine Schritte hallen auf dem Pflaster, während Blätter im Wind rascheln."
 
-    #################
-    # Check Wendla alive/dead for B1/B2
-    #################
     if wendla_aufklaerung != "biologisch":
 
         erz "Melchior bleibt vor einem Grab stehen. Immergrün umrahmt einen schlichten Stein, auf dem 'Wendla, Selig sind, die reinen Herzens sind...' steht."
@@ -298,11 +267,7 @@ label friedhof_szenen:
 
         erz "Der Wind pfeift, und Melchior sinkt auf die Knie."
 
-    #################
-    # Now final scenarios C1, C2, C3
-    #################
     if moritz_suicide == True:
-        # C1: Wendla dead, Moritz dead
         stop music fadeout 1.0
         play music "very_dark.mp3" fadein 2.0
 
@@ -322,7 +287,6 @@ label friedhof_szenen:
                 $ mel_leben = True
 
     elif wendla_aufklaerung != "biologisch":
-        # C2: Wendla dead, Moritz alive
         stop music fadeout 1.0
         play music "very_dark.mp3" fadein 2.0
 
@@ -336,7 +300,6 @@ label friedhof_szenen:
                 $ mel_leben = True
 
     elif wendla_aufklaerung == "biologisch" and moritz_suicide == False:
-        # C3: Wendla alive, Moritz alive
         stop music fadeout 1.0
         play music "happy.mp3" fadein 2.0
 
@@ -367,11 +330,9 @@ label moritz_letter_scene:
             erz "Nach langem Überlegen beschließt Frau Gabor, Moritz aufzusuchen. Sie kann den Schmerz in seinen Worten nicht ignorieren."
             erz "Trotz ihrer Zweifel macht sie sich auf den Weg, bereit, ihm Trost und Unterstützung zu spenden – wenn auch keine finanzielle Hilfe."
 
-            # Fade the screen to black as she leaves to visit him
             scene black with fade
             pause 1.0
 
-            # Check conditions to determine Moritz’s fate
             if melchior_supports_moritz and gabor_visits:
                 $ moritz_suicide = False
             else:
@@ -385,7 +346,6 @@ label moritz_letter_scene:
             erz "Sie erklärt, dass sie ihm das Geld für die Überfahrt nicht geben kann und rät ihm, sich seinen Eltern anzuvertrauen."
             erz "Mit schwerem Herzen endet sie den Brief mit allgemeinen Worten des Trostes, doch zwischen den Zeilen bleibt eine spürbare Distanz."
 
-            # Check conditions to determine Moritz’s fate
             if melchior_supports_moritz and gabor_visits:
                 $ moritz_suicide = False
             else:
@@ -394,14 +354,10 @@ label moritz_letter_scene:
             jump moritz_monolog_ilse
 label moritz_monolog_ilse:
 
-    # Assume the variable moritz_suicide is already set before this scene.
-    # If not set, define a default:
-    # default moritz_suicide = False
 
     scene nachtfeld
     with fade
 
-    # Start with a dark, contemplative track as Moritz monologues
     play music "very_dark.mp3" fadein 2.0
 
     show mor at center
@@ -414,18 +370,14 @@ label moritz_monolog_ilse:
 
     mor "Es ist, als hätte ich keinen Platz. Man hat mich in diese Welt gedrängt, ohne zu fragen. Jetzt will ich einfach nur weg."
 
-    # Ilse appears (no sprite), just narration and Moritz’s reactions
     erz "Plötzlich raschelt es im Gebüsch. Ilse tritt hervor, farbenfroh gekleidet, mit einem seltsamen Ausdruck von Heiterkeit."
 
     mor "Ilse? Was machst du hier ganz allein?"
 
     erz "Ilse lächelt geheimnisvoll und nähert sich ein Stück."
 
-    # If Moritz will survive (moritz_suicide == False), he is influenced by previous warmth (from Melchior/Gabor)
-    # Variation 1: Moritz goes with Ilse
     if moritz_suicide == False:
 
-        # Switch music to something slightly hopeful as Ilse’s presence offers a way out
         stop music fadeout 1.0
         play music "emotional_happy.mp3" fadein 2.0
         hide mor
@@ -439,9 +391,7 @@ label moritz_monolog_ilse:
         stop music fadeout 2.0
         jump schwangerschaft
 
-    # Variation 2: Moritz commits suicide (moritz_suicide == True)
     else:
-        # Moritz remains trapped, even Ilse’s presence can't save him
         stop music fadeout 1.0
 
         erz "Ilse redet, lacht leise, doch Moritz hört ihre Worte nicht mehr. Er spürt keine Wärme, keine Hoffnung. Ihr Lachen verhallt, und Ilse verschwindet, ohne dass er ihr folgt."
@@ -467,9 +417,7 @@ label moritz_monolog_ilse:
         erz "Die Dunkelheit scheint dichter zu werden. Ein entfernter Laut, dann Stille."
         play sound "shoot.mp3"
 
-        # Fade to black as he commits suicide
         scene black with fade
-        # Play the shoot sound
 
         erz "Die Nacht bleibt stumm, als wäre nie etwas geschehen."
 
@@ -482,14 +430,10 @@ label wendla_melchior_wald:
     scene wald
     with fade
 
-    # Start with soft story music for the forest
     play music "melchior.mp3" fadein 2.0
 
-    # If wendla_fragt == True, Wendla wants to be beaten. Otherwise, the peaceful version.
     if wendla_fragt:
-        # Variation where Wendla wants to be beaten
 
-        # Show Melchior and Wendla in the forest
         show wen at right
         show mel_unhappy at left
 
@@ -497,14 +441,12 @@ label wendla_melchior_wald:
         mel "Wendla? Was machst du hier ganz allein?"
         wen "Ich habe Waldmeister gesammelt. Aber ich glaube, ich habe mich verlaufen."
 
-        # Melchior tries to help
         hide mel_unhappy
         show mel at left
         mel "Dann lass uns ein Stück zusammen gehen. Ich zeige dir den Weg zurück."
 
         erz "Beide gehen eine Weile schweigend. Nach einiger Zeit erreichen sie eine sonnige Lichtung."
 
-        # Wendla thinks and then asks
         wen "Melchior... ich habe noch nie gespürt, wie es ist, geschlagen zu werden."
 
         mel "Wendla, warum denkst du über so etwas nach?"
@@ -521,29 +463,23 @@ label wendla_melchior_wald:
 
         mel "Wenn du unbedingt darauf bestehst…"
         
-        # He hits her softly first
-        # After the soft hit
         wen "Ich spüre kaum etwas. Schlag mich fester, Melchior."
 
         mel "Wendla, hör auf! Was verlangst du da von mir?"
         stop music fadeout 2.0
         erz "Getrieben von einer Mischung aus Wut und Verzweiflung wirft Melchior die Gerte weg und schlägt mit den Fäusten auf Wendla ein."
 
-        # Fade to black as violence escalates
         scene black with fade
-        # Play punch sound
         play sound "punches.mp3"
 
         wen "Ah! ..."
 
-        # After the violence, return to narration
         erz "Plötzlich lässt Melchior von ihr ab. Tränen laufen über sein Gesicht, während er die Hände an seine Schläfen presst. Ohne ein weiteres Wort stürzt er in den Wald davon, lässt Wendla allein zurück."
         
         stop music fadeout 2.0
         jump wendla_mutter_wohnzimmer
 
     else:
-        # Variation where Wendla does not want to be beaten (wendla_fragt == False)
         
         show wen at right
         show mel at left
@@ -556,7 +492,6 @@ label wendla_melchior_wald:
 
         erz "Sie gehen schweigend durch den Wald."
 
-        # Possibly Melchior looks thoughtful
         hide mel
         show mel_unhappy at left
         mel "Du bist so still. Woran denkst du?"
@@ -577,14 +512,11 @@ label wendla_melchior_wald:
 
 label melchior_moritz_zimmer:
 
-    # Scene setup
     scene zimmermel
     with fade
 
-    # Play initial background music (melchior.mp3)
     play music "melchior.mp3" fadein 2.0
 
-    # Show Melchior and Moritz. Melchior thoughtful/unhappy, Moritz sad.
     show mel_unhappy at left
     show mor_sad at right
 
@@ -592,41 +524,32 @@ label melchior_moritz_zimmer:
 
     mor "Weißt du, Melchior, manchmal frage ich mich… warum wir das alles überhaupt machen. Die Schule, die Prüfungen… wofür?"
 
-    # Melchior denkt nach, vielleicht neutral aber unzufrieden.
     hide mel_unhappy
     show mel at left
     mel "Damit wir werden wie unsere Eltern. Funktionieren, ohne nachzufragen. Aber du bist nicht dafür gemacht, Moritz."
 
-    # Moritz schaut niedergeschlagen (mor_sad) ist schon auf dem Bildschirm
     mor "Manchmal fühle ich mich, als würde ich ertrinken. Jeder Tag ist ein Kampf, und am Ende fragt keiner, ob ich überhaupt noch kann."
 
-    # Melchior wird ernster/unhappy, da es eine ernste Frage ist.
     hide mel
     show mel_unhappy at left
     mel "Und du redest mit niemandem darüber?"
 
-    # Moritz leise, niedergeschlagen: mor_sad bleibt.
     mor "Mit wem denn? Mein Vater würde nur brüllen, dass ich mich zusammenreißen soll. Meine Mutter würde weinen. Was bringt das?"
 
-    # Spannung steigt, dunklerer Akkord: Wechsel zu dissonant
     stop music fadeout 1.0
     play music "dissonant.mp3" fadein 2.0
 
     erz "Die Stimmung wird düster, Spannung baut sich auf."
 
-    # Entscheidungspunkt
-    # Melchior kann Moritz unterstützen oder das Thema wechseln.
 
     menu:
         "Melchior unterstützt Moritz emotional und bietet Hilfe an":
             $ melchior_supports_moritz = True
 
-            # Melchior wird etwas sanfter, vielleicht mel_happy_alt um unterstützend zu wirken.
             hide mel_unhappy
             show mel_happy_alt at left
             mel "Hör zu, Moritz. Ich helfe dir. Wir können zusammen lernen, Schritt für Schritt. Und vergiss nicht, dass deine Noten nicht bestimmen, wer du als Mensch bist."
 
-            # Moritz überrascht, vielleicht ein leichtes Lächeln
             hide mor_sad
             show mor_smile at right
             mor "Würdest du das wirklich tun? Mit mir lernen?"
@@ -637,37 +560,31 @@ label melchior_moritz_zimmer:
 
             mor "Danke, Melchior. Das bedeutet mir viel… Ich glaube, ich habe das gebraucht."
 
-            # Musik wird heller: emotional_happy für einen hoffnungsvollen Ton
             stop music fadeout 1.0
             play music "emotional_happy.mp3" fadein 2.0
 
             erz "Die Stimmung hält auf, Hoffnung schimmert durch."
 
-            # Scene ends here
             jump wendla_melchior_wald
 
         "Melchior wechselt das Thema":
             $ melchior_supports_moritz = False
 
-            # Melchior bleibt neutral/unhappy, vermeidet aber die tiefe Diskussion
             hide mel_unhappy
             show mel_sus at left
             mel "Es bringt nichts, sich den Kopf über die Schule zu zerbrechen. Lass uns über etwas anderes reden."
 
             mor "(verwirrt) Etwas anderes? Aber…"
 
-            # Melchior lenkt ab
             hide mel_sus
             show mel at left
             mel "Hast du Faust schon zu Ende gelesen? Du wolltest doch wissen, wie die Walpurgisnacht beschrieben wird."
 
             erz "Moritz nickt langsam, doch sein Blick bleibt schwer. Die Worte, die er sagen wollte, bleiben unausgesprochen, die Last auf seinen Schultern unverändert."
 
-            # Musik bleibt melancholisch, aber leiser - wir können mit "story.mp3" zurückgehen
             stop music fadeout 1.0
             play music "story.mp3" fadein 2.0
 
-            # Scene ends here
             jump wendla_melchior_wald
 
 
@@ -676,7 +593,6 @@ label wendla_thea_martha_wald:
     scene wald
     with fade
 
-    # Play a calm story-like background music
     play music "happy.mp3" fadein 2.0
 
     erz "Die drei Mädchen – Wendla, Thea und Martha – stehen in einer kleinen Lichtung im Wald. Das Zwitschern der Vögel und das Rascheln der Blätter im Wind bilden eine sanfte Kulisse."
@@ -687,8 +603,6 @@ label wendla_thea_martha_wald:
     thea "Das ist ja schrecklich, Martha! Wie hältst du das aus?"
     martha "Es ist, wie es ist."
 
-    # First decision: Wendla fragt oder nicht?
-    # According to the given text, Wendla does ask. We present the decision as a menu to reflect player choice.
     erz "Wendla steht daneben und lauscht, innerlich bewegt von Marthas Aussage. Eine Frage drängt sich in ihren Kopf."
 
     menu:
@@ -703,7 +617,6 @@ label wendla_thea_martha_wald:
             scene black
             erz "Marthas Ausweichen löst in ihr nicht nur Verwunderung aus, sondern auch einen unerklärlichen Drang, es selbst zu spüren."
 
-            # Change music to something more melancholisch - "dissonant.mp3" or "very_dark.mp3"
             
             wen "Wie kann man etwas verstehen, wenn man es nie erlebt hat?"
             erz "Die Worte schwingen in Wendlas Kopf nach. Es ist, als hätte sich eine unbekannte Tür in ihr geöffnet, ein Verlangen nach dem Unbekannten, das sie weder benennen noch begreifen kann."
@@ -713,7 +626,6 @@ label wendla_thea_martha_wald:
             erz "Wendla spürt, wie ihr die Frage auf der Zunge brennt, doch sie wagt es nicht, sie auszusprechen."
             erz "Stattdessen beobachtet sie schweigend Marthas Haltung, den gesenkten Blick, den schwachen Windhauch im Haar. Die Spannung bleibt jedoch im Raum."
 
-            # The atmosphere might still shift slightly, but less dramatically
             stop music fadeout 1.0
             play music "dissonant.mp3" fadein 2.0
             scene black
@@ -736,30 +648,25 @@ label moritz_melchior_schule:
 
     play music "melchior.mp3" fadein 2.0
 
-    # Melchior starts unhappy (reflecting his general discontent, especially with school)
     show mel_unhappy at left
     show mor_sad at right
 
     erz "Die anderen Jungen sind längst auf dem Weg nach Hause, doch Moritz und Melchior bleiben zurück. Der Weg ist verlassen, die Luft schwer von der nahenden Nacht."
 
-    # Melchior remains unhappy as he complains
     mel "Ich bin es so leid. Alles dreht sich nur um diese verdammten Schulaufgaben. Wir werden daran ersticken."
 
     mor "Sie pressen uns in ein Korsett, Melchior. Nicht nur in der Schule – überall."
 
-    # Melchior shows a slightly suspicious, discontented look as he reflects on conformity
     hide mel_unhappy
     show mel_sus at left
     mel "Damit wir genau wie sie werden. Stumpf. Angepasst. Voller Angst vor allem, was anders ist."
 
     mor "Denkst du, das wird bei uns genauso?"
 
-    # Melchior becomes neutral but still not happy, just thoughtful discontent (neutral is also discontent)
     hide mel_sus
     show mel at left
     mel "Nur, wenn wir es zulassen. Aber sag mal, Moritz… warum bedrückt dich das alles in letzter Zeit so sehr?"
 
-    # Moritz tries to explain his fear, maybe giving a nervous smile trying to downplay it
     hide mor_sad
     show mor_fakesmile at right
     mor "Seit Weihnachten fühle ich mich… seltsam. Alles scheint sich zu verändern, aber ich verstehe nichts davon. Es macht mir Angst."
@@ -767,59 +674,48 @@ label moritz_melchior_schule:
     stop music fadeout 1.0
     play music "dissonant.mp3" fadein 2.0
 
-    # Melchior grows slightly more concerned, returning to unhappy as he questions Moritz
     hide mel
     show mel_unhappy at left
     mel "Und du weißt wirklich nicht, warum?"
 
-    # Moritz returns to sadness, as he doesn't understand
     hide mor_fakesmile
     show mor_sad at right
     mor "Nein… ich meine, ich ahne etwas. Aber niemand redet darüber. Niemand erklärt uns irgendetwas."
 
-    # Melchior finds it absurd, goes to a slightly suspicious look again, signifying frustration with adults
     hide mel_unhappy
     show mel_sus at left
     mel "Es ist doch absurd, nicht? Die Erwachsenen erwarten, dass wir die Welt verstehen, aber sie verweigern uns jede Erklärung."
 
     mor "Melchior, du weißt doch Dinge. Mehr als ich. Kannst du es mir… erklären?"
 
-    # Melchior returns to a more neutral expression (mel), thinking about what Moritz wants
     hide mel_sus
     show mel at left
     mel "Was genau möchtest du wissen?"
 
-    # Moritz remains sad as he lays it all out
     mor "Alles. Warum wir diese Gefühle haben. Warum es plötzlich so kompliziert wird, mit den Mädchen zu reden. Was das alles bedeutet."
 
     erz "Ein sanfter Wind pfeift auf."
 
-    # Melchior becomes more worried at the complexity of Moritz's request
     hide mel
     show mel_bigworry at left
     mel "Das ist viel auf einmal, Moritz. Vielleicht… sollten wir ein anderes Mal ausführlicher sprechen."
 
-    # Moritz insists, remains sad
     mor "Nein, nicht sprechen. Schreib es mir auf. In einem Brief. Alles, was du weißt. Ich kann das nicht hier und jetzt hören."
 
-    # Melchior slightly suspicious again, unsure why a letter is needed
     hide mel_bigworry
     show mel_sus at left
     mel "Einen Brief? Warum?"
 
-    # Moritz tries a faint fake smile again, showing embarrassment
     hide mor_sad
     show mor_fakesmile at right
     mor "Weil ich es besser begreifen kann, wenn ich es allein lese. Und… ich schäme mich zu sehr, es laut zu hören."
 
     erz "Die Stimmung wird düsterer, fast drängend."
 
-    # Melchior returns to a thoughtful neutral (mel), acknowledging Moritz’s request but concerned
     hide mel_sus
     show mel at left
     mel "Hm. Vielleicht hast du recht. Es könnte einfacher sein, es aufzuschreiben. Aber bist du sicher? Manche Dinge sind schwer zu verdauen."
 
-    # Moritz returns to sad, because he is still troubled
     hide mor_fakesmile
     show mor_sad at right
     mor "Ich muss es wissen, Melchior. Bitte."
@@ -829,12 +725,10 @@ label moritz_melchior_schule:
     menu:
         "Brief verfassen":
             $ brief_verfassen = True
-            # Melchior tries to reassure Moritz with a neutral but slightly kinder tone
             hide mel
             show mel at left
             mel "Gut, Moritz. Ich schreibe dir alles auf. So klar und einfach wie möglich."
 
-            # Moritz relieved, gives a small smile
             hide mor_sad
             show mor_fakesmile at right
             mor "Danke, Melchior. Ich vertraue dir."
@@ -851,7 +745,6 @@ label moritz_melchior_schule:
 
             erz "Moritz blickt Melchior flehend an. Die Bitte nach einem Brief hängt schwer in der kühlen Abendluft."
             
-            # Melchior grows uncertain again, switching to mel_unhappy as he rejects the idea
             hide mel
             show mel_unhappy at left
             mel "Einen Brief?"
@@ -872,29 +765,22 @@ label lehrer_eltern_szenen:
     if not moritz_suicide:
         jump schwangerschaft
 
-    # We assume that moritz_suicide == True here (Moritz is dead)
-    # We also have brief_verfassen (True/False)
 
     if brief_verfassen == False:
-        # Variation 1: Melchior has NOT written the text, teachers are criticized
 
         scene schule
         with fade
 
-        # Play heavy, uneasy strings
         play music "very_dark.mp3" fadein 2.0
 
         erz "Im Konferenzzimmer herrscht bedrückte Stille. Die Professoren sitzen um einen grünen Tisch. Nervosität und Verlegenheit liegen in der Luft. Rektor Sonnenstich steht schweigend, die Stirn gerunzelt, während die anderen auf ihre Hände starren."
 
-        # The teachers speak
-        # No parentheses or emotional directions inside quotes
         sonnenstich "Meine Herren, wir stehen vor einem Abgrund. Die Tragödie des Schülers Stiefel hat unsere Institution erschüttert. Die Öffentlichkeit wird uns beobachten."
         knueppeldick "Ich glaube nicht, dass wir diese Verantwortung allein tragen sollten. Die Anforderungen an die Schüler… sind vielleicht zu hoch."
         fliegentod "Zu hoch? Unsere Aufgabe ist es, sie zu gebildeten Bürgern zu formen. Die Schwäche dieses Jungen war bedauerlich, aber nicht unser Fehler."
         zungenschlag "I-ich möchte daran erinnern, dass wir hier eine Verantwortung gegenüber der Gesellschaft haben."
         hungergurt "Aber was ist mit der Verantwortung gegenüber den Schülern selbst? Waren wir zu streng? Haben wir genug getan, um Stiefel zu unterstützen?"
 
-        # Change to slow piano chords
         stop music fadeout 1.0
         play music "emotional_happy.mp3" fadein 2.0
 
@@ -905,13 +791,10 @@ label lehrer_eltern_szenen:
         jump schwangerschaft
 
     else:
-        # Variation 2: Melchior wrote the text
-        # Teachers confront Melchior
 
         scene schule
         with fade
 
-        # Tense strings that grow more intense
         play music "dissonant.mp3" fadein 2.0
 
         erz "Das Konferenzzimmer liegt in kaltem Licht. Melchior steht vor den Professoren, bleich, aber gefasst. Auf dem Tisch liegt das Schriftstück, das ihn belasten soll."
@@ -921,7 +804,6 @@ label lehrer_eltern_szenen:
         sonnenstich "Und Sie erkennen die Auswirkungen nicht? Sie haben Stiefel mit Ihrer Verworfenheit in den Abgrund gestoßen!"
         mel "Das ist nicht wahr. Moritz hat sich das Leben genommen, weil er in einem erdrückenden System gefangen war. Nicht mein Schriftstück hat ihn zerstört, sondern Ihre Schule."
 
-        # More intense music
         stop music fadeout 1.0
         play music "suspence.mp3" fadein 2.0
 
@@ -935,18 +817,14 @@ label lehrer_eltern_szenen:
 
         stop music fadeout 2.0
 
-        # Parents scene, only if brief_verfassen == True
-        # Melchior’s parents send him to a correctional facility
         scene black with fade
 
-        # Perhaps a dark track as Melchior faces punishment
         play music "very_dark.mp3" fadein 2.0
 
         erz "Nach dem Auffinden eines problematischen Briefes, in dem Melchior angeblich eine Verfehlung gesteht, stehen seine Eltern vor einer schweren Entscheidung. Sie schicken ihn in eine Jugendkorrektionsanstalt."
 
         erz "In dieser Anstalt herrschen unmenschliche Bedingungen. Melchior spürt die Ungerechtigkeit, die ihn umgibt. Doch anstatt sich zu fügen, plant er seine Flucht."
         scene wald-sad
-        # Melchior escapes
         erz "In einer mondlosen Nacht entkommt Melchior aus der Korrektionsanstalt. Entschlossen, seine Freiheit zurückzugewinnen, bricht er auf."
 
         stop music fadeout 2.0
@@ -954,25 +832,19 @@ label lehrer_eltern_szenen:
 
 label wendlas_geburtstag_wohnzimmer:
 
-    # Set the scene
     scene wohnzimmer
     with fade
 
-    # Start background music
     play music "emotional_happy.mp3" fadein 2.0
 
-    # Show Mother (Frau Bergmann) on the left and Wendla on the right
     show mom_happy at left
     show wen_happy at right
 
     wen "Oh, Mutter! Ein Kleid?"
 
-    # (Optional sound of rustling paper if available; if not, omit)
-    # play sound "paper.mp3"
 
     mom "Dein Geburtstagskleid. Es wird dir stehen, mein Schatz."
 
-    # Wendla looks at it, becoming uncertain
     hide wen_happy
     show wen_unhappy at right
     wen "Aber… warum ist es so lang? Es geht mir ja bis zu den Knöcheln!"
@@ -1011,22 +883,18 @@ label wendlas_geburtstag_wohnzimmer:
     show wen_happy at right
     wen "Danke, Mutter."
 
-    # Fade out music or end scene
     stop music fadeout 2.0
 
     jump moritz_melchior_schule
 
 label schwangerschaft:
-    # Only show this scene if wendla_rape is True
     if wendla_aufklaerung == "biologisch":
         jump friedhof_szenen
 
     scene wohnzimmer with fade
 
-    # Play soft, melancholic piano music (melchior.mp3)
     play music "dissonant.mp3" fadein 2.0
 
-    # Show mother on the left, Wendla on the right
     show mom_unhappy at left
     show wen_unhappy at right
 
@@ -1036,7 +904,6 @@ label schwangerschaft:
 
     wen "O Mutter, ich fühle, dass etwas mit mir nicht stimmt. Es ist nicht die Bleichsucht. Es ist etwas anderes."
 
-    # Mutter versucht, Wendla zu beruhigen
     hide mom_unhappy
     show mom_happy at left
     mom "Du musst dir keine Sorgen machen, mein Kind. Es wird wieder besser werden."
