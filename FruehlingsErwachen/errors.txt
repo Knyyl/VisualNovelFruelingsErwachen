@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 51: end of line expected.
+    erzl "Wendla ist tot. "\w(1.5)"Moritz ist tot. "\w(1.5)"Melchior ist tot."
+                           ^
+
+Ren'Py Version: Ren'Py 8.3.4.24120703
+Sun Dec 15 21:29:28 2024
