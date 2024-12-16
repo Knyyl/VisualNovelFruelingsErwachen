@@ -1,4 +1,4 @@
-﻿define wen = Character("Wendla", what_slow_cps=45, color="#B89A76")
+define wen = Character("Wendla", what_slow_cps=45, color="#B89A76")
 define mom = Character("Frau Bergmann", what_slow_cps=35, color="#a0712a")
 define mel = Character("Melchior", what_slow_cps=45, color="#939AAC")
 define mor = Character("Moritz", what_slow_cps=25, color="#7F645D")
