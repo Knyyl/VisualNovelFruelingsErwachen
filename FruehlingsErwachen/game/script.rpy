@@ -14,12 +14,6 @@ define zungenschlag = Character("Zungenschlag", color="#c8ffc8", what_slow_cps=3
 define hungergurt = Character("Hungergurt", color="#ffcccc", what_slow_cps=30)
 
 init python:
-    persistent.fast_good_end = False
-    persistent.good_end = False
-    persistent.lorekeeper_end = False
-    persistent.bad_end = False
-    persistent.neutral_end = False
-
     if not hasattr(persistent, 'fast_good_end'):
         persistent.fast_good_end = False
     if not hasattr(persistent, 'good_end'):
@@ -265,7 +259,7 @@ label friedhof_szenen:
 
     show mel at left
 
-    if brief_verfassen:
+    if brief_verfassen and moritz_suicide:
         play music "suspence.mp3" fadein 2.0
         erz "Melchior stolpert aus der Dunkelheit der Wälder auf den stillen Kirchhof. Sein Atem ist schwer, seine Kleider zerrissen, Schweiß und Schmutz bedecken sein Gesicht."
 
@@ -726,7 +720,7 @@ label moritz_melchior_schule:
     show mel at left
     mel "Was genau möchtest du wissen?"
 
-    mor "Alles. Warum wir diese Gefühle haben. Warum es plötzlich so kompliziert wird, mit den Mädchen zu reden. Wie entstehen Kinder. Was das alles bedeutet."
+    mor "Alles. Warum wir diese Gefühle haben. Warum es plötzlich so kompliziert wird, mit den Mädchen zu reden. Wie Kinder entstehen. Was das alles bedeutet."
 
     erz "Ein sanfter Wind pfeift auf."
 
@@ -809,14 +803,11 @@ label lehrer_eltern_szenen:
 
         erz "Im Konferenzzimmer herrscht bedrückte Stille. Die Professoren sitzen um einen grünen Tisch. Nervosität und Verlegenheit liegen in der Luft. Rektor Sonnenstich steht schweigend, die Stirn gerunzelt, während die anderen auf ihre Hände starren."
 
-        sonnenstich "Meine Herren, wir stehen vor einem Abgrund. Die Tragödie des Schülers Stiefel hat unsere Institution erschüttert. Die Öffentlichkeit wird uns beobachten."
+        sonnenstich "Meine Herren, wir stehen vor einem Abgrund. Die Tragödie des Schülers Moritz Stiefel hat unsere Institution erschüttert. Die Öffentlichkeit wird uns beobachten."
         knueppeldick "Ich glaube nicht, dass wir diese Verantwortung allein tragen sollten. Die Anforderungen an die Schüler... sind vielleicht zu hoch."
         fliegentod "Zu hoch? Unsere Aufgabe ist es, sie zu gebildeten Bürgern zu formen. Die Schwäche dieses Jungen war bedauerlich, aber nicht unser Fehler."
         zungenschlag "I-ich möchte daran erinnern, dass wir hier eine Verantwortung gegenüber der Gesellschaft haben."
         hungergurt "Aber was ist mit der Verantwortung gegenüber den Schülern selbst? Waren wir zu streng? Haben wir genug getan, um Stiefel zu unterstützen?"
-
-        stop music fadeout 1.0
-        play music "emotional_happy.mp3" fadein 2.0
 
         sonnenstich "Die Presse wird gnadenlos sein. Wir können nur hoffen, dass unser hoher Standard und unser Ruf uns schützen werden."
         erz "Ein schweres Schweigen legt sich über den Raum. Die Männer blicken sich gegenseitig an, als suche jeder einen Ausweg. Doch keiner spricht es laut aus: Der Tod von Moritz Stiefel ist eine Last, die sie tragen müssen."
